@@ -11,7 +11,7 @@ pub struct Movie {
     pub imdb_score: Option<f64>,
 }
 
-pub fn read_movies_from_csv(file_path: &str) -> Result<Vec<Movie>, Box<dyn Error>> {  // Function made public
+pub fn read_movies_from_csv(file_path: &str) -> Result<Vec<Movie>, Box<dyn Error>> {  // function to read csv
     let mut rdr = Reader::from_path(file_path)?;
     let mut movies = Vec::new();
 
