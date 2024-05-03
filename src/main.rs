@@ -11,7 +11,7 @@ pub struct Movie {
     pub imdb_score: Option<f64>,
 }
 
-pub fn read_movies_from_csv(file_path: &str) -> Result<Vec<Movie>, Box<dyn Error>> {  // function to read csv
+pub fn read_movies_from_csv(file_path: &str) -> Result<Vec<Movie>, Box<dyn Error>> {  
     let mut rdr = Reader::from_path(file_path)?;
     let mut movies = Vec::new();
 
@@ -26,13 +26,13 @@ pub fn read_movies_from_csv(file_path: &str) -> Result<Vec<Movie>, Box<dyn Error
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let file_path = "src/imdb_movies_shows.csv"; 
+    let file_path = "src/imdb_movies_shows.csv"; // function to read csv
     let movies = read_movies_from_csv(file_path)?;
     let genre_graph = graph::create_genre_graph(&movies);
     let centrality = centrality::calculate_degree_centrality(&genre_graph);
     let betweenness_centrality = centrality::calculate_betweenness_centrality(&genre_graph);
 
-
+// printing dataset 
     for movie in &movies {
         let genres: Vec<String> = movie.genres.split(',').map(String::from).collect();
         let genres_str = genres.join(",");
