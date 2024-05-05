@@ -77,7 +77,7 @@ fn test_empty_genre(){
     ];
     let graph = crate::graph::create_genre_graph(&movies);
     assert_eq!(graph.node_count(),0, "Graph should have no nodes when there is no genres provided");
-    assert_eq!(graph.edge_count(),0,"Graph should have no edges when there is no genres provided")
+    assert_eq!(graph.edge_count(),0,"Graph should have no edges when there is no genres provided");
 }
 
 // testing centrality 
