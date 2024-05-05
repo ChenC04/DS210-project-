@@ -32,6 +32,7 @@ pub fn calculate_betweenness_centrality(graph: &UnGraph<String, u32>) -> HashMap
             short_path_counts.insert(v, 0.0);
             short_distances.insert(v, -1);
         }
+        // set the starting node's distance to 0 and path count to 1
         short_path_counts.insert(s, 1.0); 
         short_distances.insert(s, 0); 
 
@@ -40,7 +41,7 @@ pub fn calculate_betweenness_centrality(graph: &UnGraph<String, u32>) -> HashMap
         while let Some(v) = queue.pop() {
             stack.push(v);
             for w in graph.neighbors(v) {
-                // checking nodes
+                // checking neighbor has been visited 
                 if *short_distances.get(&w).unwrap() == -1 {
                     queue.push(w);
                     short_distances.insert(w, *short_distances.get(&v).unwrap() + 1);
@@ -59,12 +60,13 @@ pub fn calculate_betweenness_centrality(graph: &UnGraph<String, u32>) -> HashMap
         for v in graph.node_indices() {
             dependencies.insert(v, 0.0);
         }
+        // Calculate dependencies and betweenness
         while let Some(w) = stack.pop() {
             for v in short_paths.get(&w).unwrap() {
                 let c = dependencies.get(v).unwrap() + (short_path_counts.get(v).unwrap() / short_path_counts.get(&w).unwrap()) * (1.0 + dependencies.get(&w).unwrap());
                 dependencies.insert(*v, c);
             }
-            // Updating the betweeness centrality
+            // Updating the betweeness centrality 
             if w != s {
                 *betweenness.get_mut(&graph[w]).unwrap() += dependencies.get(&w).unwrap();
             }
