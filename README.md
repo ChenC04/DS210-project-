@@ -23,3 +23,8 @@ This project explores genre influence within a large Netflix dataset by modeling
 - **Comedy** had the highest **degree centrality**, suggesting it’s the most commonly co-listed genre.
 - **Family** genre had the highest **betweenness centrality**, acting as a bridge between otherwise disconnected genre groups.
 - These insights can guide **genre selection** in content production to maximize audience reach.
+
+## 🚀 How to Run
+- ** Clone the repository **
+  git clone https://github.com/ChenC04/movie-genre-analysis.git
+  cd movie-genre-analysis
