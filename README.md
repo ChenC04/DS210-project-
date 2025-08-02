@@ -25,6 +25,6 @@ This project explores genre influence within a large Netflix dataset by modeling
 - These insights can guide **genre selection** in content production to maximize audience reach.
 
 ## 🚀 How to Run
-- ** Clone the repository **
-  git clone https://github.com/ChenC04/movie-genre-analysis.git
-  cd movie-genre-analysis
+- **Clone the repository**
+- git clone https://github.com/ChenC04/movie-genre-analysis.git
+- cd movie-genre-analysis
